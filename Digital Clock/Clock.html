@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: #ff5e79;
+        }
+        .Clock {
+            position: absolute;
+            color: #57ffff;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 70px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            letter-spacing: 7px;
+        }
+
+        @media screen and (max-width:1300px) {
+            .Clock{
+                font-size: 50px;
+                letter-spacing: 5px;
+            }
+        }
+        @media screen and (max-width:895px) {
+            .Clock{
+                font-size: 40px;
+                letter-spacing: 4px;
+            }
+        }
+        @media screen and (max-width:720px) {
+            .Clock{
+                font-size: 30px;
+                letter-spacing: 1px;
+            }
+        }
+        @media screen and (max-width:495px) {
+            .Clock{
+                font-size: 21px;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="DigitalClock" class="Clock"></div>
+    <script type="text/javascript">
+        function showTime()
+        {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session = "AM";
+
+            // 12 Hour Format
+            if (h == 0)
+            {
+                h = 12;
+            }
+            if (h > 12)
+            {
+                h = h - 12;
+                session = "PM";
+            }
+            // Adding 0 so that it could be double digit format
+            h = (h < 10) ? "0"+h:h;
+            m = (m < 10) ? "0"+m:m;
+            s = (s < 10) ? "0"+s:s;
+            
+            document.getElementById("DigitalClock").innerHTML =  `&#x23F1;`+h + ":" + m + ":" + s + " " + session;
+
+            setTimeout(showTime,1000);
+        }
+        showTime();
+    </script>
+</body>
+</html>

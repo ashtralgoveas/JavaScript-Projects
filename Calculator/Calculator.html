@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <style>
+        body {
+            background-color: #ff5e79;
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .title{
+            margin-bottom: 10px;
+            text-align: center;
+            height: 40px;
+            width: 95%;
+            font-size: 25px;
+            color: #ffffff;
+            border: solid black 2px;
+            box-shadow: 10px 1px #888888;
+        }
+        input[type = "button"]{
+            background-color: black;
+            color: #ffffff;
+            box-shadow: 10px 3px #888888;
+            cursor: pointer;
+            height: 55px;
+            border-radius: 50%;
+            width: 65px;
+        }
+        input[type = "text"]{
+            background-color: #ffffff;
+            border: solid black 2px;
+            box-shadow: 10px 3px #888888;
+            font-size: 20px;
+            border-radius: 10%;
+            height: 35px;
+            width: 95%;
+        }
+        @media screen and (max-width:750px) {
+            .title{
+            margin-bottom: 10px;
+            text-align: center;
+            height: 30px;
+            width: 95%;
+            font-size: 15px;
+            color: #ffffff;
+            border: solid black 2px;
+            box-shadow: 10px 1px #888888;
+        }
+        input[type = "button"]{
+            background-color: black;
+            color: #ffffff;
+            box-shadow: 10px 3px #888888;
+            cursor: pointer;
+            height: 45px;
+            border-radius: 50%;
+            width: 55px;
+        }
+        input[type = "text"]{
+            background-color: #ffffff;
+            border: solid black 2px;
+            box-shadow: 10px 3px #888888;
+            font-size: 20px;
+            border-radius: 10%;
+            height: 25px;
+            width: 95%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="title">
+            My Calculator &#x1F5A9;
+        </div>
+        <table border="0">
+            <tr>
+                <td colspan="3"><input type="text" id="result"></td>
+                <td><input type="button" value="C" onclick="clr()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="display('1')"></td>
+                <td><input type="button" value="2" onclick="display('2')"></td>
+                <td><input type="button" value="3" onclick="display('3')"></td>
+                <td><input type="button" value="/" onclick="display('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="display('4')"></td>
+                <td><input type="button" value="5" onclick="display('5')"></td>
+                <td><input type="button" value="6" onclick="display('6')"></td>
+                <td><input type="button" value="-" onclick="display('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="display('7')"></td>
+                <td><input type="button" value="8" onclick="display('8')"></td>
+                <td><input type="button" value="9" onclick="display('9')"></td>
+                <td><input type="button" value="+" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." onclick="display('.')"></td>
+                <td><input type="button" value="0" onclick="display('0')"></td>
+                <td><input type="button" value="=" onclick="equate()"></td>
+                <td><input type="button" value="*" onclick="display('*')"></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function clr()
+        {
+            document.getElementById("result").value = "";
+        }
+
+        function display(val)
+        {
+            document.getElementById("result").value += val;
+        }
+
+        function equate()
+        {
+            let x = document.getElementById("result").value;
+            let y = eval(x);
+            document.getElementById("result").value = y;
+        }
+    </script>
+</body>
+</html>
